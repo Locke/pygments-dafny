@@ -64,6 +64,8 @@ lemma multisetContains(a: seq<int>, b: seq<int>, x: int)
     assert x in m;
 }
 
+datatype Tree = Leaf | Node(Tree, int, Tree)
+
 trait Animal {
 }
 
