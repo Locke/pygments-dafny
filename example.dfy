@@ -60,7 +60,8 @@ lemma multisetContains(a: seq<int>, b: seq<int>, x: int)
     requires x in a
     ensures x in b
 {
-    assert x in multiset(a);
+    var m: multiset<int> = multiset(a)
+    assert x in m;
 }
 
 trait Animal {

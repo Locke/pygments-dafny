@@ -50,6 +50,7 @@ class DafnyLexer(RegexLexer):
             (r'(==|!=|<=|>=|=|&&|[-<>+*/%])', Operator),
             (r'(in)\b', Operator),
             (r'(old|print)\b', Name.Function.Magic),
+            (r'(multiset)(\s*)(\()', bygroups(Name.Function.Magic, Text, Punctuation)),
             (r'(modifies|ensures|requires|assert|invariant)\b', Keyword),
             (r'(if|then|else|while|returns|forall)\b', Keyword),
             (r'(function|method|datatype|predicate|lemma)(\s+)(\w+)', bygroups(Keyword.Declaration, Text, Name.Function)),
