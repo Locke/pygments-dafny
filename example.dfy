@@ -65,3 +65,9 @@ lemma multisetContains(a: seq<int>, b: seq<int>, x: int)
 
 trait Animal {
 }
+
+class Dog extends Animal {
+    method bark() returns () {
+        print "woof\n";
+    }
+}
