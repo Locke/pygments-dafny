@@ -33,6 +33,7 @@ method ComputeFib(n: nat) returns (x: nat)
     while (i < n)
         invariant 0 <= i <= n
         invariant x == Fib(i) && y == Fib(i+1)
+        decreases n - i
     {
         x, y := y, x + y;
         i := i + 1;
