@@ -62,3 +62,6 @@ lemma multisetContains(a: seq<int>, b: seq<int>, x: int)
 {
     assert x in multiset(a);
 }
+
+trait Animal {
+}
