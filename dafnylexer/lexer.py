@@ -49,7 +49,7 @@ class DafnyLexer(RegexLexer):
             (r'[{(\[,.\])}]', Punctuation),
             (r'(==|!=|<=|>=|=|&&|[-<>+*/%])', Operator),
             (r'(in)\b', Operator),
-            (r'(old)\b', Name.Function.Magic),
+            (r'(old|print)\b', Name.Function.Magic),
             (r'(modifies|ensures|requires|assert|invariant)\b', Keyword),
             (r'(if|then|else|while|returns|forall)\b', Keyword),
             (r'(function|method|datatype|predicate|lemma)(\s+)(\w+)', bygroups(Keyword.Declaration, Text, Name.Function)),
