@@ -51,7 +51,7 @@ class DafnyLexer(RegexLexer):
             (r'(in)\b', Operator),
             (r'(old)\b', Name.Function.Magic),
             (r'(modifies|ensures|requires|assert|invariant)\b', Keyword),
-            (r'(if|then|else|while|return|forall)\b', Keyword),
+            (r'(if|then|else|while|returns|forall)\b', Keyword),
             (r'(function|method|trait|class|datatype|predicate|lemma)(\s+)(\w+)', bygroups(Keyword.Declaration, Text, Name.Function)),
             (r'(function|method|trait|class|datatype|predicate|lemma)', Keyword.Declaration),
             (r'(var)(\s+)(\w+)', bygroups(Keyword.Declaration, Text, Name)), # actually Name.Variable.Instance, but that would be inconsistent, as we don't know this information on other occurrences
