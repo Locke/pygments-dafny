@@ -70,8 +70,28 @@ datatype Tree = Leaf | Node(Tree, int, Tree)
 trait Animal {
 }
 
-class Dog extends Animal {
-    method bark() returns () {
-        print "woof\n";
+class {: autocontracts} Dog extends Animal {
+    var name: string
+    var barkCount: nat
+
+    constructor (name: string)
+    requires name != ""
+    //ensures Valid() // added automatically via autocontracts
+    {
+        this.name := name;
+        this.barkCount := 0;
+    }
+
+    predicate Valid()
+    reads this`name, this`barkCount
+    {
+        this.name != "" && this.barkCount >= 0
+    }
+
+    method bark() returns ()
+    modifies this`barkCount
+    {
+        print this.name, ": woof\n";
+        this.barkCount := this.barkCount + 1;
     }
 }
