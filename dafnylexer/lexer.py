@@ -62,6 +62,7 @@ class DafnyLexer(RegexLexer):
             (r'(extends)(\s+)(\w+)', bygroups(Keyword, Text, Name.Class)),
             (r'(extends)', Keyword),
             (r'(var)(\s+)(\w+)', bygroups(Keyword.Declaration, Text, Name)), # actually Name.Variable.Instance, but that would be inconsistent, as we don't know this information on other occurrences
+            (r'(var|ghost)\b', Keyword.Declaration),
             (r'(true|false)\b', Keyword.Constant),
             (r'(array|seq|set|multiset|int|nat|string|char)\b', Keyword.Type),
             (r'[0-9]+', Number.Integer),

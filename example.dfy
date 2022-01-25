@@ -29,6 +29,7 @@ method ComputeFib(n: nat) returns (x: nat)
     x := 0;
     var y := 1;
     var i := 0;
+    ghost var _unused := 0;
 
     while (i < n)
         invariant 0 <= i <= n
