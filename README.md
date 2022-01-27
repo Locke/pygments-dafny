@@ -2,7 +2,7 @@
 
 ## About
 
-This repository contains a Dafny lexer for pygments. It's intention is to be used with [minted](https://github.com/gpoore/minted).
+This repository contains a [Dafny](https://github.com/dafny-lang/dafny) lexer for [Pygments](https://github.com/pygments/pygments). It's motivation is to be used with [minted](https://github.com/gpoore/minted) for simple programs.
 
 ## Requirements
 
@@ -37,3 +37,11 @@ Hello \dafnyinline{b := a[1..]}!
 ```
 
 shell escape must be enabled (unless you use the draft mode), e.g. via `pdflatex -shell-escape`.
+
+## Status
+
+Developed on Debian 11 with Pygments 2.7.1 and Dafny 3.3.0.
+
+Coverage of the Dafny language is still incomplete.
+
+This repository will not be actively maintained. Small contibutions / PRs are welcome, larger contibutions / PRs might justify a fork with a note here to archive this repo.
