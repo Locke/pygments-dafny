@@ -96,3 +96,16 @@ class {: autocontracts} Dog extends Animal {
         this.barkCount := this.barkCount + 1;
     }
 }
+
+lemma DisjointIntersectionLemma<T(!new)>(A: set<T>, B: set<T>)
+  requires A * B == {}
+  ensures A !! B
+{
+  forall x | x in A ensures x !in B
+  {
+    if x in B
+    {
+      assert x in A * B;
+    }
+  }
+}
