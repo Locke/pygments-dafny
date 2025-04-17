@@ -109,3 +109,13 @@ lemma DisjointIntersectionLemma<T(!new)>(A: set<T>, B: set<T>)
     }
   }
 }
+
+datatype BYTree = BlueLeaf
+                | YellowLeaf
+                | Node(left: BYTree, right: BYTree)
+
+function LeftDepth'(t: BYTree): nat
+{
+  if t.Node? then 1 + LeftDepth(t.left)
+  else 0
+}
