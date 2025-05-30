@@ -2,7 +2,8 @@
 
 ## About
 
-This repository contains a [Dafny](https://github.com/dafny-lang/dafny) lexer for [Pygments](https://github.com/pygments/pygments). It's motivation is to be used with [minted](https://github.com/gpoore/minted) for simple programs.
+This repository contains a [Dafny](https://github.com/dafny-lang/dafny) lexer for [Pygments](https://github.com/pygments/pygments).
+It is motivated to be used in LaTeX with [minted](https://github.com/gpoore/minted) for simple programs, but not limited to that.
 
 ## Requirements
 
