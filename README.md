@@ -26,8 +26,9 @@ Development installation via: `sudo python3 setup.py develop` (links to the file
 This repository contains an example file: [example.dfy](example.dfy)
 
 You can render it directly in your terminal with the Command Line Interface: `pygmentize example.dfy`
+You can also render it to an html file: `pygmentize -f html -O style=solarized-light,full -l dafny -o example.html example.dfy`
 
-Please see Pygments' [https://pygments.org/docs/cmdline/](CLI documentation) for other outputs, e.g. rendering it to html.
+Please see Pygments' [https://pygments.org/docs/cmdline/](CLI documentation) for all options.
 
 ## Usage with minted
 
