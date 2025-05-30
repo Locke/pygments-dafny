@@ -20,6 +20,13 @@ One-Shot installation via: `sudo python3 setup.py install` (copies the files).
 
 Development installation via: `sudo python3 setup.py develop` (links to the files). Uninstall with `sudo python3 setup.py develop --uninstall`.
 
+## Usage on CLI
+
+This repository contains an example file: [example.dfy](example.dfy)
+
+You can render it directly in your terminal with the Command Line Interface: `pygmentize example.dfy`
+
+Please see Pygments' [https://pygments.org/docs/cmdline/](CLI documentation) for other outputs, e.g. rendering it to html.
 
 ## Usage with minted
 
