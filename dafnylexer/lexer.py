@@ -30,6 +30,7 @@ class DafnyLexer(RegexLexer):
     flags = re.DOTALL | re.UNICODE | re.MULTILINE
 
     valid_name = r"[\w']+"
+    valid_name_captured = r"([\w']+)"
 
     tokens = {
         'commentsandwhitespace': [
@@ -55,15 +56,15 @@ class DafnyLexer(RegexLexer):
             (r'(multiset)(\s*)(\()', bygroups(Name.Function.Magic, Text, Punctuation)),
             (r'(reads|modifies|ensures|requires|assert|assume|expect|invariant|decreases|constructor)\b', Keyword),
             (r'(if|then|else|while|returns|forall)\b', Keyword),
-            (r'(function|method|predicate|lemma)(\s+\{[^\}]+\}\s+)(\w+)', bygroups(Keyword.Declaration, Text, Name.Function)),
-            (r'(function|method|predicate|lemma)(\s+)(\w+)', bygroups(Keyword.Declaration, Text, Name.Function)),
+            (r'(function|method|predicate|lemma)(\s+\{[^\}]+\}\s+)'+valid_name_captured, bygroups(Keyword.Declaration, Text, Name.Function)),
+            (r'(function|method|predicate|lemma)(\s+)'+valid_name_captured, bygroups(Keyword.Declaration, Text, Name.Function)),
             (r'(function|method|predicate|lemma)', Keyword.Declaration),
-            (r'(trait|class|datatype)(\s+\{[^\}]+\}\s+)(\w+)', bygroups(Keyword.Declaration, Text, Name.Class)),
-            (r'(trait|class|datatype)(\s+)(\w+)', bygroups(Keyword.Declaration, Text, Name.Class)),
+            (r'(trait|class|datatype)(\s+\{[^\}]+\}\s+)'+valid_name_captured, bygroups(Keyword.Declaration, Text, Name.Class)),
+            (r'(trait|class|datatype)(\s+)'+valid_name_captured, bygroups(Keyword.Declaration, Text, Name.Class)),
             (r'(trait|class|datatype)', Keyword.Declaration),
-            (r'(extends)(\s+)(\w+)', bygroups(Keyword, Text, Name.Class)),
+            (r'(extends)(\s+)'+valid_name_captured, bygroups(Keyword, Text, Name.Class)),
             (r'(extends)', Keyword),
-            (r'(var)(\s+)(\w+)', bygroups(Keyword.Declaration, Text, Name)), # actually Name.Variable.Instance, but that would be inconsistent, as we don't know this information on other occurrences
+            (r'(var)(\s+)'+valid_name_captured, bygroups(Keyword.Declaration, Text, Name)), # actually Name.Variable.Instance, but that would be inconsistent, as we don't know this information on other occurrences
             (r'(var|ghost)\b', Keyword.Declaration),
             (r'(true|false)\b', Keyword.Constant),
             (r'(array|seq|set|multiset|int|nat|string|char)\b', Keyword.Type),
