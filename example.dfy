@@ -116,6 +116,6 @@ datatype BYTree = BlueLeaf
 
 function LeftDepth'(t: BYTree): nat
 {
-    if t.Node? then 1 + LeftDepth(t.left)
+    if t.Node? then 1 + LeftDepth'(t.left)
     else 0
 }
