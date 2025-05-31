@@ -29,7 +29,7 @@ method ComputeFib(n: nat) returns (x: nat)
     x := 0;
     var y := 1;
     var i := 0;
-    ghost var _unused := 0;
+    ghost var ghost_unused := 0;
 
     while (i < n)
         invariant 0 <= i <= n
@@ -62,7 +62,7 @@ lemma multisetContains(a: seq<int>, b: seq<int>, x: int)
     requires x in a
     ensures x in b
 {
-    var m: multiset<int> = multiset(a)
+    var m: multiset<int> := multiset(a);
     assert x in m;
 }
 
@@ -83,7 +83,7 @@ class {: autocontracts} Dog extends Animal {
         this.barkCount := 0;
     }
 
-    predicate Valid()
+    ghost predicate Valid()
     reads this`name, this`barkCount
     {
         this.name != "" && this.barkCount >= 0
