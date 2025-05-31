@@ -98,16 +98,16 @@ class {: autocontracts} Dog extends Animal {
 }
 
 lemma DisjointIntersectionLemma<T(!new)>(A: set<T>, B: set<T>)
-  requires A * B == {}
-  ensures A !! B
+    requires A * B == {}
+    ensures A !! B
 {
-  forall x | x in A ensures x !in B
-  {
-    if x in B
+    forall x | x in A ensures x !in B
     {
-      assert x in A * B;
+        if x in B
+        {
+            assert x in A * B;
+        }
     }
-  }
 }
 
 datatype BYTree = BlueLeaf
@@ -116,6 +116,6 @@ datatype BYTree = BlueLeaf
 
 function LeftDepth'(t: BYTree): nat
 {
-  if t.Node? then 1 + LeftDepth(t.left)
-  else 0
+    if t.Node? then 1 + LeftDepth(t.left)
+    else 0
 }
