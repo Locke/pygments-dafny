@@ -29,7 +29,7 @@ class DafnyLexer(RegexLexer):
 
     flags = re.DOTALL | re.UNICODE | re.MULTILINE
 
-    valid_name = r'[\w_]+'
+    valid_name = r"[\w_']+"
 
     tokens = {
         'commentsandwhitespace': [
@@ -47,8 +47,10 @@ class DafnyLexer(RegexLexer):
             (r'(\|)', Operator),
             (r'(;|::|:|\.\.|`)', Punctuation),
             (r'[{(\[,.\])}]', Punctuation),
+            (r'(!!|!|\?)', Operator),
             (r'(==|!=|<=|>=|=|&&|[-<>+*/%])', Operator),
             (r'(in)\b', Operator),
+            (r'(new)\b', Operator),
             (r'(this|old|print)\b', Name.Function.Magic),
             (r'(multiset)(\s*)(\()', bygroups(Name.Function.Magic, Text, Punctuation)),
             (r'(reads|modifies|ensures|requires|assert|assume|expect|invariant|decreases|constructor)\b', Keyword),
